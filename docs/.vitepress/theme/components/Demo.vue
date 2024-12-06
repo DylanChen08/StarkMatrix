@@ -51,15 +51,16 @@ const toggleCode = () => {
 
 // 格式化源代码
 const formatCode = (code: string) => {
+  const template = code
   return `<template>
-  ${code
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<div class="demo-value">.*?<\/div>/g, '')
-    .split('>').join('>\n  ')
-    .split('<').join('\n  <')
-    .trim()}
+  ${template}
 </template>`
 }
+
+
+const value = ref('')
+
+
 
 // 获取源代码
 const sourceCode = computed(() => {
@@ -71,8 +72,8 @@ const sourceCode = computed(() => {
 const highlightedCode = computed(() => {
   return Prism.highlight(
     sourceCode.value,
-    Prism.languages.html,
-    'html'
+    Prism.languages.markup,
+    'vue'
   )
 })
 </script>
@@ -120,10 +121,13 @@ const highlightedCode = computed(() => {
     }
 
     :deep(.token) {
-      &.tag { color: #f92672; }
-      &.attr-name { color: #a6e22e; }
-      &.attr-value { color: #e6db74; }
-      &.punctuation { color: #f8f8f2; }
+      &.tag { color: #2973b7; }
+      &.attr-name { color: #42b983; }
+      &.attr-value { color: #a37acc; }
+      &.punctuation { 
+        color: #2973b7;
+        opacity: 0.7;
+      }
     }
 
     pre {
