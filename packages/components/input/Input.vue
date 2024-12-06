@@ -1,8 +1,8 @@
 <template>
-  <div class="my-input">
+  <div class="st-input">
     <input
       ref="inputRef"
-      class="my-input__inner"
+      class="st-input__inner"
       :class="{ 'is-disabled': disabled }"
       :type="type"
       :placeholder="placeholder"
@@ -13,7 +13,7 @@
     />
     <span
       v-if="clearable && modelValue"
-      class="my-input__clear"
+      class="st-input__clear"
       @click="handleClear"
     >
       ×
@@ -66,7 +66,7 @@ const handleClear = () => {
 </script>
 
 <style lang="scss" scoped>
-.my-input {
+.st-input {
   position: relative;
   display: inline-flex;
   width: 100%;

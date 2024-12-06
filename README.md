@@ -31,7 +31,7 @@
 - 🔧 完整的类型定义
 - 📖 详尽的文档和示例
 
-## 🎯 安装
+## 安装
 
 ```bash
 # npm
@@ -49,11 +49,11 @@ pnpm add starkmatrix-ui
 
 ```vue
 <template>
-  <sm-button type="primary">StarkMatrix Button</sm-button>
+  <st-button type="primary">StarkMatrix Button</st-button>
 </template>
 
 <script setup>
-import { SmButton } from 'starkmatrix-ui'
+import { StButton } from 'starkmatrix-ui'
 </script>
 
 ```
@@ -72,10 +72,10 @@ StarkMatrix UI 提供了灵活的主题定制能力：
 
 ```css
 :root {
-  --sm-primary-color: #646cff;
-  --sm-success-color: #67c23a;
-  --sm-warning-color: #e6a23c;
-  --sm-danger-color: #f56c6c;
+  --st-primary-color: #646cff;
+  --st-success-color: #67c23a;
+  --st-warning-color: #e6a23c;
+  --st-danger-color: #f56c6c;
 }
 
 ```

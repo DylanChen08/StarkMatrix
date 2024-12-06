@@ -1,5 +1,5 @@
 <template>
-    <div class="my-time-picker" ref="timePickerRef" tabindex="0" @focus="handleFocus"
+    <div class="st-time-picker" ref="timePickerRef" tabindex="0" @focus="handleFocus"
         @keydown.up.prevent="handleKeyUp" 
         @keydown.down.prevent="handleKeyDown"
         @keydown.left="switchColumn('prev')" 
@@ -7,8 +7,8 @@
         @keydown.enter="confirm"
         @keydown.esc="close" 
         @keydown.tab="handleTab">
-        <div class="my-time-picker__input" ref="inputRef">
-            <my-input
+        <div class="st-time-picker__input" ref="inputRef">
+            <st-input
                 v-model="displayValue"
                 :placeholder="placeholder"
                 :disabled="disabled"
@@ -17,20 +17,19 @@
                 readonly
             />
         </div>
-        {{ visible }}
-        <div class="my-time-picker__popover" v-show="visible" v-click-outside="handleClickOutside" tabindex="-1">
-            <div class="my-time-picker__content">
-                <div class="my-time-picker__spinner">
+        <div class="st-time-picker__popover" v-show="visible" v-click-outside="handleClickOutside" tabindex="-1">
+            <div class="st-time-picker__content">
+                <div class="st-time-picker__spinner">
                     <!-- 小时选择 -->
-                    <div class="my-time-picker__column">
-                        <div class="my-time-picker__column-header">
-                            <button class="my-time-picker__arrow" @click="stepHour('up')">▲</button>
+                    <div class="st-time-picker__column">
+                        <div class="st-time-picker__column-header">
+                            <button class="st-time-picker__arrow" @click="stepHour('up')">▲</button>
                             <span>时</span>
-                            <button class="my-time-picker__arrow" @click="stepHour('down')">▼</button>
+                            <button class="st-time-picker__arrow" @click="stepHour('down')">▼</button>
                         </div>
-                        <ul class="my-time-picker__list" ref="hourListRef">
+                        <ul class="st-time-picker__list" ref="hourListRef">
                             <li v-for="hour in 24" :key="`hour-${hour - 1}`" :class="[
-                                'my-time-picker__item',
+                                'st-time-picker__item',
                                 {
                                     'is-active': selectedHour === hour - 1,
                                     'is-disabled': isDisabledHour(hour - 1)
@@ -41,15 +40,15 @@
                         </ul>
                     </div>
                     <!-- 分钟选择 -->
-                    <div class="my-time-picker__column">
-                        <div class="my-time-picker__column-header">
-                            <button class="my-time-picker__arrow" @click="stepMinute('up')">▲</button>
+                    <div class="st-time-picker__column">
+                        <div class="st-time-picker__column-header">
+                            <button class="st-time-picker__arrow" @click="stepMinute('up')">▲</button>
                             <span>分</span>
-                            <button class="my-time-picker__arrow" @click="stepMinute('down')">▼</button>
+                            <button class="st-time-picker__arrow" @click="stepMinute('down')">▼</button>
                         </div>
-                        <ul class="my-time-picker__list" ref="minuteListRef">
+                        <ul class="st-time-picker__list" ref="minuteListRef">
                             <li v-for="minute in getMinuteList" :key="`minute-${minute}`" :class="[
-                                'my-time-picker__item',
+                                'st-time-picker__item',
                                 {
                                     'is-active': selectedMinute === minute,
                                     'is-disabled': isDisabledMinute(minute)
@@ -60,15 +59,15 @@
                         </ul>
                     </div>
                     <!-- 秒钟选择 -->
-                    <div class="my-time-picker__column">
-                        <div class="my-time-picker__column-header">
-                            <button class="my-time-picker__arrow" @click="stepSecond('up')">▲</button>
+                    <div class="st-time-picker__column">
+                        <div class="st-time-picker__column-header">
+                            <button class="st-time-picker__arrow" @click="stepSecond('up')">▲</button>
                             <span>秒</span>
-                            <button class="my-time-picker__arrow" @click="stepSecond('down')">▼</button>
+                            <button class="st-time-picker__arrow" @click="stepSecond('down')">▼</button>
                         </div>
-                        <ul class="my-time-picker__list" ref="secondListRef">
+                        <ul class="st-time-picker__list" ref="secondListRef">
                             <li v-for="second in getSecondList" :key="`second-${second}`" :class="[
-                                'my-time-picker__item',
+                                'st-time-picker__item',
                                 {
                                     'is-active': selectedSecond === second,
                                     'is-disabled': isDisabledSecond(second)
@@ -79,16 +78,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="my-time-picker__footer">
-                    <div class="my-time-picker__shortcuts">
-                        <button v-for="shortcut in shortcuts" :key="shortcut.text" class="my-time-picker__shortcut"
+                <div class="st-time-picker__footer">
+                    <div class="st-time-picker__shortcuts">
+                        <button v-for="shortcut in shortcuts" :key="shortcut.text" class="st-time-picker__shortcut"
                             @click="handleShortcut(shortcut)">
                             {{ shortcut.text }}
                         </button>
                     </div>
-                    <div class="my-time-picker__buttons">
-                        <my-button size="small" @click="close">取消</my-button>
-                        <my-button type="primary" size="small" @click="confirm">确定</my-button>
+                    <div class="st-time-picker__buttons">
+                        <st-button size="small" @click="close">取消</st-button>
+                        <st-button type="primary" size="small" @click="confirm">确定</st-button>
                     </div>
                 </div>
             </div>
@@ -98,13 +97,13 @@
 
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
-import MyInput from '../input/Input.vue'
-import MyButton from '../button/Button.vue'
+import StInput from '../input/Input.vue'
+import StButton from '../button/Button.vue'
 import clickOutside from '../../directives/click-outside'
 
 // 定义组件名称
 defineOptions({
-    name: 'MyTimePicker'
+    name: 'StTimePicker'
 })
 
 // 类型定义
@@ -202,7 +201,7 @@ const togglePopover = () => {
             selectedMinute.value = minute
             selectedSecond.value = second
         } else {
-            // 如果没有值，使用当前时间
+            // 如果没有��，使用当前时间
             const now = new Date()
             selectedHour.value = now.getHours()
             selectedMinute.value = now.getMinutes()
@@ -441,7 +440,7 @@ const handleInputClick = (e: MouseEvent) => {
     
     visible.value = true
     
-    // 如果有值，使用现有值
+    // 如果有值，使���现有值
     if (props.modelValue) {
         const [hour, minute, second] = props.modelValue.split(':').map(Number)
         selectedHour.value = hour

@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { zhCN, enUS } from './locales'
+import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   title: "我的组件库",
@@ -50,6 +54,14 @@ export default defineConfig({
 
     search: {
       provider: 'local'
+    }
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, '../..')
+      }
     }
   }
 }) 

@@ -1,9 +1,9 @@
 <template>
   <button
-    class="my-button"
+    class="st-button"
     :class="[
-      `my-button--${type}`,
-      `my-button--${size}`,
+      `st-button--${type}`,
+      `st-button--${size}`,
       { 'is-disabled': disabled }
     ]"
     :disabled="disabled"
@@ -40,7 +40,7 @@ const handleClick = (event: MouseEvent) => {
 </script>
 
 <style lang="scss" scoped>
-.my-button {
+.st-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@ const handleClick = (event: MouseEvent) => {
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s;
-  background-color: var(--vp-c-bg);
+  background-color: var(--st-primary-color);
   color: var(--vp-c-text);
   border-color: var(--vp-c-divider);
 

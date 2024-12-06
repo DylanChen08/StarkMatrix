@@ -6,7 +6,7 @@
 
 <demo title="基础用法">
   <template #demo>
-    <my-time-picker v-model="time" placeholder="请选择时间" />
+    <st-time-picker v-model="time" placeholder="请选择时间" />
     <div class="demo-value">当前值：{{ time }}</div>
   </template>
 
@@ -19,7 +19,7 @@
 
 <demo title="时间范围">
   <template #demo>
-    <my-time-picker
+    <st-time-picker
       v-model="timeRange"
       placeholder="请选择时间"
       min-time="09:30:00"
@@ -37,7 +37,7 @@
 
 <demo title="步进控制">
   <template #demo>
-    <my-time-picker
+    <st-time-picker
       v-model="timeStep"
       placeholder="请选择时间"
       :minute-step="15"
@@ -55,7 +55,7 @@
 
 <demo title="禁用特定时间">
   <template #demo>
-    <my-time-picker
+    <st-time-picker
       v-model="timeDisabled"
       placeholder="请选择时间"
       :disabled-hours="[0, 1, 2, 3, 4, 5, 6, 20, 21, 22, 23]"
@@ -73,7 +73,7 @@
 
 <demo title="快捷选项">
   <template #demo>
-    <my-time-picker
+    <st-time-picker
       v-model="timeShortcut"
       placeholder="请选择时间"
       :shortcuts="[
