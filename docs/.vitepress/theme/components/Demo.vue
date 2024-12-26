@@ -51,6 +51,8 @@ const toggleCode = () => {
 
 // 格式化源代码
 const formatCode = (code: string) => {
+  console.log(code);
+  
   const template = code
   return `<template>
   ${template}
