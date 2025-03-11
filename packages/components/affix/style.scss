@@ -1,0 +1,15 @@
+.st-affix {
+  position: fixed;
+  
+  &__wrapper {
+    width: fit-content;
+  }
+  
+  &__placeholder {
+    display: none;
+    
+    &--active {
+      display: block;
+    }
+  }
+} 
