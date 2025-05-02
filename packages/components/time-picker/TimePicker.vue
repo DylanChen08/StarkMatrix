@@ -13,6 +13,7 @@
                 :placeholder="placeholder"
                 :disabled="disabled"
                 :clearable="clearable"
+                :class="{ 'is-invalid': isInvalid }"
                 @clear="handleClear"
                 readonly
             />
@@ -201,7 +202,7 @@ const togglePopover = () => {
             selectedMinute.value = minute
             selectedSecond.value = second
         } else {
-            // 如果没有��，使用当前时间
+            // 如果没有值，使用当前时间
             const now = new Date()
             selectedHour.value = now.getHours()
             selectedMinute.value = now.getMinutes()
@@ -286,9 +287,32 @@ const selectSecond = (second: number) => {
     selectedSecond.value = second
 }
 
+// 检查时间是否在范围内
+const isTimeInRange = (value: string) => {
+    if (props.minTime && value < props.minTime) {
+        console.warn(`Selected time ${value} is before min time ${props.minTime}`)
+        return false
+    }
+    if (props.maxTime && value > props.maxTime) {
+        console.warn(`Selected time ${value} is after max time ${props.maxTime}`)
+        return false
+    }
+    return true
+}
+
 // 确认选择
 const confirm = () => {
     const value = `${padNumber(selectedHour.value)}:${padNumber(selectedMinute.value)}:${padNumber(selectedSecond.value)}`
+    
+    // 使用辅助函数检查时间范围
+    if (!isTimeInRange(value)) {
+        // 添加视觉反馈
+        const input = inputRef.value?.querySelector('.st-input__inner') as HTMLElement
+        input?.classList.add('shake')
+        setTimeout(() => input?.classList.remove('shake'), 500)
+        return
+    }
+    
     emit('update:modelValue', value)
     emit('change', value)
     close()
@@ -412,6 +436,9 @@ const handleTab = (e: KeyboardEvent) => {
 // 快捷选项处理
 const handleShortcut = (shortcut: TimeShortcut) => {
     const value = shortcut.value()
+    if (!isTimeInRange(value)) {
+        return
+    }
     emit('update:modelValue', value)
     emit('change', value)
     close()
@@ -440,7 +467,7 @@ const handleInputClick = (e: MouseEvent) => {
     
     visible.value = true
     
-    // 如果有值，使���现有值
+    // 如果有值，使用现有值
     if (props.modelValue) {
         const [hour, minute, second] = props.modelValue.split(':').map(Number)
         selectedHour.value = hour
@@ -468,8 +495,31 @@ onMounted(() => {
 onUnmounted(() => {
     inputRef.value?.removeEventListener('click', handleInputClick)
 })
+
+// 添加无效状态计算属性
+const isInvalid = computed(() => {
+    if (!props.modelValue) return false
+    return !isTimeInRange(props.modelValue)
+})
 </script>
 
 <style lang="scss">
 @import './style.scss';
+
+// 添加无效状态和动画样式
+.st-input.is-invalid {
+    .st-input__inner {
+        border-color: var(--st-danger-color, #f56c6c);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
 </style>

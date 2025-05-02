@@ -27,7 +27,8 @@ export default defineConfig({
             { text: '介绍', link: '/components/' },
             { text: '按钮', link: '/components/button' },
             { text: '输入框', link: '/components/input' },
-            { text: '时间选择器', link: '/components/time-picker' }
+            { text: '时间选择器', link: '/components/time-picker' },
+            { text: '固钉', link: '/components/affix' }
           ]
         }
       ],
