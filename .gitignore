@@ -49,3 +49,9 @@ Thumbs.db
 # Cache
 .cache
 .temp
+
+# vitepress
+.vitepress
+.vitepress/**
+
+
