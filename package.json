@@ -1,47 +1,43 @@
 {
-  "name": "my-component-docs",
+  "name": "duyiui-plus",
   "version": "1.0.0",
-  "description": "组件库文档",
+  "description": "A simple Vue3 + TypeScript components library",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "build": "vite build",
-    "test": "vitest",
-    "prepare": "husky install",
-    "commit": "git-cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "dev": "pnpm -C examples dev",
+    "test": "pnpm -C packages/components test",
+    "build": "rollup -c && node generate-types.cjs"
   },
-  "engines": {
-    "node": ">=16.0.0",
-    "pnpm": ">=8.0.0"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "/dist",
+    "LICENSE"
+  ],
   "devDependencies": {
-    "@commitlint/cli": "^18.0.0",
-    "@commitlint/config-conventional": "^18.0.0",
-    "@types/node": "^20.0.0",
-    "@types/prismjs": "^1.26.5",
-    "@vitejs/plugin-vue": "^5.0.0",
-    "@vue/test-utils": "^2.4.0",
-    "commitizen": "^4.3.0",
-    "conventional-changelog-cli": "^4.1.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^8.0.0",
-    "sass": "^1.71.0",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0",
-    "vitepress": "^1.0.0-rc.44",
-    "vitest": "^3.1.2",
-    "vue": "^3.4.21"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "@rollup/plugin-terser": "^0.4.3",
+    "@tsconfig/node18": "^18.2.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.4.1",
+    "@vue/tsconfig": "^0.4.0",
+    "jsdom": "^22.1.0",
+    "rollup": "^3.28.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.65.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.6",
+    "vitest": "^0.34.1"
   },
   "dependencies": {
-    "prismjs": "^1.29.0"
+    "@duyiui-plus/components": "workspace:^",
+    "@duyiui-plus/theme-chalk": "workspace:^",
+    "@duyiui-plus/utils": "workspace:^",
+    "vue": "^3.3.4"
   }
 }

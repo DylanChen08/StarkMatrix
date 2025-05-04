@@ -1,29 +1,11 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowJs": true,
-    "strict": true,
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     },
-    "types": ["vite/client"]
-  },
-  "include": [
-    "env.d.ts",
-    "docs/**/*.ts",
-    "docs/**/*.d.ts",
-    "docs/**/*.tsx",
-    "docs/**/*.vue",
-    "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue"
+    {
+      "path": "./tsconfig.app.json"
+    }
   ]
-} 
+}

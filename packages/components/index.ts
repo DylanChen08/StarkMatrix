@@ -1,16 +1,29 @@
-import type { App } from 'vue'
-import Button from './button/Button.vue'
-import Input from './input/Input.vue'
-import TimePicker from './time-picker/TimePicker.vue'
-import Affix from './affix/Affix.vue'
+import Button from "./button/src/button.vue";
+import Card from "./card/src/card.vue";
+import Dialog from "./dialog/src/dialog.vue";
+import Pager from "./pager/src/pager.vue";
 
-export { Button, Input, TimePicker, Affix }
+import type { App, Plugin } from "vue";
 
-export default {
-  install(app: App) {
-    app.component('st-button', Button)
-    app.component('st-input', Input)
-    app.component('st-time-picker', TimePicker)
-    app.component('st-affix', Affix)
-  }
-} 
+// 之前是每个组件有一个入口文件，每个入口文件实际上所做的事情就是给这个组件添加一个 install 方法
+// 之后在其他项目中就可以单独的引入这个组件：
+// import DuyiButton from '@duyiui-plus/components/button'
+// import DuyiCard from '@duyiui-plus/components/card'
+
+// 现在整体项目的入口文件，要做的事情很简单：统一给所有组件添加上 install
+// 之后在其他项目中使用的时候，就可以一次性导入所有的组件
+
+const components = [Button, Card, Dialog, Pager];
+
+const install = (app: App) => {
+  components.forEach((component) => {
+    app.component(component.name, component);
+  });
+};
+
+const duyiui: Plugin = {
+  install,
+};
+
+export default duyiui;
+
