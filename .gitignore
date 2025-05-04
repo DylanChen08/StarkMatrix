@@ -3,3 +3,5 @@ node_modules
 dist
 # 测试覆盖率报告文件
 coverage
+
+docs/.vitepress

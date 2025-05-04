@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "pnpm -C examples dev",
     "test": "pnpm -C packages/components test",
-    "build": "rollup -c && node generate-types.cjs"
+    "build": "rollup -c && node generate-types.cjs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "keywords": [],
   "author": "",
@@ -32,12 +35,13 @@
     "sass": "^1.65.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.6",
-    "vitest": "^0.34.1"
+    "vitepress": "^1.6.3",
+    "vitest": "^0.34.1",
+    "vue": "^3.3.4"
   },
   "dependencies": {
     "@starkui-plus/components": "workspace:^",
     "@starkui-plus/theme-chalk": "workspace:^",
-    "@starkui-plus/utils": "workspace:^",
-    "vue": "^3.3.4"
+    "@starkui-plus/utils": "workspace:^"
   }
 }
