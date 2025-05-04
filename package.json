@@ -1,5 +1,5 @@
 {
-  "name": "duyiui-plus",
+  "name": "starkui-plus",
   "version": "1.0.0",
   "description": "A simple Vue3 + TypeScript components library",
   "main": "index.js",
@@ -35,9 +35,9 @@
     "vitest": "^0.34.1"
   },
   "dependencies": {
-    "@duyiui-plus/components": "workspace:^",
-    "@duyiui-plus/theme-chalk": "workspace:^",
-    "@duyiui-plus/utils": "workspace:^",
+    "@starkui-plus/components": "workspace:^",
+    "@starkui-plus/theme-chalk": "workspace:^",
+    "@starkui-plus/utils": "workspace:^",
     "vue": "^3.3.4"
   }
 }

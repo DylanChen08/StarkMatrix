@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">Duyiui 组件展示</h1>
+  <h1 class="title">starkui 组件展示</h1>
   <nav class="nav">
     <router-link to="/">Button</router-link>
     <router-link to="/card">Card</router-link>

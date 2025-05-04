@@ -1,7 +1,7 @@
 {
-  "name": "@duyiui-plus/utils",
+  "name": "@starkui-plus/utils",
   "version": "1.0.0",
-  "description": "this is utils for duyiui-plus",
+  "description": "this is utils for starkui-plus",
   "main": "index.ts",
   "types": "types.d.ts",
   "scripts": {},

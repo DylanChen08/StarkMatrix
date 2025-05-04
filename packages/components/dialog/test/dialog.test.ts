@@ -14,7 +14,7 @@ describe("测试Dialog组件", () => {
         title,
       },
     });
-    expect(wrapper.find(".duyi-dialog_title").text()).toBe(title);
+    expect(wrapper.find(".stark-dialog_title").text()).toBe(title);
   });
 
   // 测试宽度
@@ -25,7 +25,7 @@ describe("测试Dialog组件", () => {
         width,
       },
     });
-    expect(wrapper.find(".duyi-dialog").attributes("style")).toContain(
+    expect(wrapper.find(".stark-dialog").attributes("style")).toContain(
       `width: ${width}`
     );
   });
@@ -38,7 +38,7 @@ describe("测试Dialog组件", () => {
         top,
       },
     });
-    expect(wrapper.find(".duyi-dialog").attributes("style")).toContain(
+    expect(wrapper.find(".stark-dialog").attributes("style")).toContain(
       `margin-top: ${top}`
     );
   });
@@ -55,8 +55,8 @@ describe("测试Dialog组件", () => {
         footer: footerSlot,
       },
     });
-    expect(wrapper.find(".duyi-dialog_title").text()).toBe(titleSlot);
-    expect(wrapper.find(".duyi-dialog_footer").text()).toBe(footerSlot);
+    expect(wrapper.find(".stark-dialog_title").text()).toBe(titleSlot);
+    expect(wrapper.find(".stark-dialog_footer").text()).toBe(footerSlot);
   });
 
   // 测试事件
@@ -69,7 +69,7 @@ describe("测试Dialog组件", () => {
     });
 
     // action 操作
-    const btn = wrapper.find(".duyi-dialog_headerbtn");
+    const btn = wrapper.find(".stark-dialog_headerbtn");
     await btn.trigger("click");
 
     // assert 断言

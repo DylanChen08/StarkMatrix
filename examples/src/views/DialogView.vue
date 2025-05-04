@@ -1,13 +1,13 @@
 <template>
   <div>
-    <duyi-button class="btn" type="primary" @click="() => (visible1 = true)">对话框示例一</duyi-button>
-    <duyi-button class="btn" type="success" @click="() => (visible2 = true)">对话框示例二</duyi-button>
-    <duyi-button class="btn" type="warning" @click="() => (visible3 = true)">对话框示例三</duyi-button>
+    <stark-button class="btn" type="primary" @click="() => (visible1 = true)">对话框示例一</stark-button>
+    <stark-button class="btn" type="success" @click="() => (visible2 = true)">对话框示例二</stark-button>
+    <stark-button class="btn" type="warning" @click="() => (visible3 = true)">对话框示例三</stark-button>
     <!-- 对话框 -->
-    <duyi-dialog v-model:visible="visible1" @close="() => (visible1 = false)">
+    <stark-dialog v-model:visible="visible1" @close="() => (visible1 = false)">
       这是一个基本的对话框
-    </duyi-dialog>
-    <duyi-dialog 
+    </stark-dialog>
+    <stark-dialog 
         v-model:visible="visible2" 
         title="温馨提示"
         width="30vw"
@@ -15,14 +15,14 @@
         @close="() => (visible2 = false)"
     >
       传递了 props 的对话框
-    </duyi-dialog>
-    <duyi-dialog v-model:visible="visible3" @close="closeDialog3">
+    </stark-dialog>
+    <stark-dialog v-model:visible="visible3" @close="closeDialog3">
       这是一个基本的对话框
       <template #footer>
-        <duyi-button @click="closeDialog3">取消</duyi-button>
-        <duyi-button type="primary" @click="closeDialog3">确定</duyi-button>
+        <stark-button @click="closeDialog3">取消</stark-button>
+        <stark-button type="primary" @click="closeDialog3">确定</stark-button>
       </template>
-    </duyi-dialog>
+    </stark-dialog>
   </div>
 </template>
 

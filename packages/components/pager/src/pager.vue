@@ -1,5 +1,5 @@
 <template>
-  <div class="duyi-pager">
+  <div class="stark-pager">
     <!-- 首页 -->
     <a
       :class="currentPage === 1 ? 'disabled' : ''"
@@ -8,7 +8,7 @@
     >
     <!-- 上一页 -->
     <a
-      class="duyi-icon-arrow-left"
+      class="stark-icon-arrow-left"
       :class="currentPage === 1 ? 'disabled' : ''"
       @click.prevent="prevClick"
     ></a>
@@ -38,7 +38,7 @@
     >
     <!-- 下一页 -->
     <a
-      class="duyi-icon-arrow-right"
+      class="stark-icon-arrow-right"
       :class="currentPage === total ? 'disabled' : ''"
       @click.prevent="nextClick"
     ></a>
@@ -55,7 +55,7 @@
 import { defineComponent, computed } from "vue";
 import { pagerProps } from "./pager";
 export default defineComponent({
-  name: "DuyiPager",
+  name: "starkPager",
   props: pagerProps,
   emits: ["current-change"],
   setup(props, { emit }) {

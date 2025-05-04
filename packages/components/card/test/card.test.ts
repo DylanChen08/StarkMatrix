@@ -29,7 +29,7 @@ describe("测试Card组件", () => {
       },
     });
 
-    expect(wrapper.find(".duyi-card-img img").attributes("src")).toBe(imgSrc);
+    expect(wrapper.find(".stark-card-img img").attributes("src")).toBe(imgSrc);
   });
 
   // 测试图片设置高度
@@ -41,7 +41,7 @@ describe("测试Card组件", () => {
       },
     });
 
-    expect(wrapper.find(".duyi-card-img").attributes("style")).toContain(
+    expect(wrapper.find(".stark-card-img").attributes("style")).toContain(
       "height: 200px"
     );
   });
@@ -55,7 +55,7 @@ describe("测试Card组件", () => {
         imgSrc,
       },
     });
-    expect(wrapper.find(".duyi-card-summary").text()).toBe(summary);
+    expect(wrapper.find(".stark-card-summary").text()).toBe(summary);
   });
 
   // 测试插槽
@@ -69,7 +69,7 @@ describe("测试Card组件", () => {
         default: summary,
       },
     });
-    expect(wrapper.find(".duyi-card-summary").text()).toBe(summary);
+    expect(wrapper.find(".stark-card-summary").text()).toBe(summary);
   });
 
   // 测试footer插槽
@@ -83,7 +83,7 @@ describe("测试Card组件", () => {
         footer: footer,
       },
     });
-    expect(wrapper.find(".duyi-card-footer").text()).toBe(footer);
+    expect(wrapper.find(".stark-card-footer").text()).toBe(footer);
   });
 });
 

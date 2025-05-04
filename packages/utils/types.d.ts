@@ -1,1 +1,1 @@
-declare module "@duyiui-plus/utils"
+declare module "@starkui-plus/utils"

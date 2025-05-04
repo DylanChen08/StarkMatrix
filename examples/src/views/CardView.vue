@@ -1,13 +1,13 @@
 <template>
   <div>
     <!-- 卡片测试 1 -->
-    <duyi-card
+    <stark-card
       img-src="/src/assets/web.png"
       summary="前端主流布局系统进阶与实战，轻松解决页面布局难题"
     />
     <br />
     <!-- 卡片测试 2 -->
-    <duyi-card
+    <stark-card
       img-src="/src/assets/go.png"
       summary="Google资深工程师深度讲解Go语言 由浅入深掌握Go语言"
     >
@@ -17,10 +17,10 @@
           <div class="price">￥399.00</div>
         </div>
       </template>
-    </duyi-card>
+    </stark-card>
     <br />
     <!-- 卡片测试 3 -->
-    <duyi-card
+    <stark-card
       img-src="/src/assets/java.png" 
       :width="370" 
       :img-height="90"
@@ -32,7 +32,7 @@
           <div class="level">10982收藏</div>
         </div>
       </template>
-    </duyi-card>
+    </stark-card>
   </div>
 </template>
 

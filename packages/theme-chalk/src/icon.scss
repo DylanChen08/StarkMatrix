@@ -10,9 +10,9 @@
   font-style: normal;
 }
 
-// <i class="duyi-icon-ice-cream-round"></i>
+// <i class="stark-icon-ice-cream-round"></i>
 
-// duyi-icon
+// stark-icon
 [class*="#{$namespace}-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "element-icons" !important;
@@ -30,7 +30,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// duyi-icon-ice-cream-round
+// stark-icon-ice-cream-round
 .#{$namespace}-icon-ice-cream-round:before {
   content: "\e6a0";
 }

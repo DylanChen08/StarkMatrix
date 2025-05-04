@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import DuyiPager from "../src/pager.vue";
+import starkPager from "../src/pager.vue";
 
 describe("测试Pager组件", () => {
   // 测试是否能够渲染正确的页码数量
   it("渲染正确的页码数量", async () => {
-    const wrapper = mount(DuyiPager, {
+    const wrapper = mount(starkPager, {
       props: {
         currentPage: 1,
         total: 20,
@@ -29,7 +29,7 @@ describe("测试Pager组件", () => {
   // 测试页码点击事件
   it("页码点击事件", async () => {
     // arrange
-    const wrapper = mount(DuyiPager, {
+    const wrapper = mount(starkPager, {
       props: {
         currentPage: 5,
         total: 20,
@@ -62,24 +62,24 @@ describe("测试Pager组件", () => {
   // 测试页码边界是否正常
   it("页码边界是否正常", async() => {
     // arrange
-    const wrapper = mount(DuyiPager, {
+    const wrapper = mount(starkPager, {
       props: {
         currentPage: 1,
         total: 20,
       },
     });
 
-    expect(wrapper.find("a.duyi-icon-arrow-left").classes()).toContain("disabled");
+    expect(wrapper.find("a.stark-icon-arrow-left").classes()).toContain("disabled");
     expect(wrapper.findAll("a")[0].classes()).toContain("disabled");
 
-    expect(wrapper.find("a.duyi-icon-arrow-right").classes()).not.toContain("disabled");
+    expect(wrapper.find("a.stark-icon-arrow-right").classes()).not.toContain("disabled");
 
     await wrapper.setProps({
         currentPage: 20
     });
 
-    expect(wrapper.find("a.duyi-icon-arrow-right").classes()).toContain("disabled");
-    expect(wrapper.find("a.duyi-icon-arrow-left").classes()).not.toContain("disabled");
+    expect(wrapper.find("a.stark-icon-arrow-right").classes()).toContain("disabled");
+    expect(wrapper.find("a.stark-icon-arrow-left").classes()).not.toContain("disabled");
   });
 });
 

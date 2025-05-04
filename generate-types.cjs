@@ -20,8 +20,8 @@ const components = fs.readdirSync(componentsDir);
 
 // 定义最终写入到 types.d.ts 里面的内容
 let typesContent = 'import { Plugin } from "vue";\n\n';
-typesContent += "declare const duyiui: Plugin; \n";
-typesContent += "export default duyiui; \n\n";
+typesContent += "declare const starkui: Plugin; \n";
+typesContent += "export default starkui; \n\n";
 
 // 为每个组件的类型声明文件生成一个 export 语句
 // 并且添加到 typesContent 里面

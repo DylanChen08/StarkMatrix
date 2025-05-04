@@ -11,8 +11,8 @@ describe("测试 Button 组件", () => {
     // 准备工作
     const wrapper = mount(Button);
     // 断言
-    expect(wrapper.classes()).toContain("duyi-button");
-    expect(wrapper.classes()).toContain("duyi-button-default");
+    expect(wrapper.classes()).toContain("stark-button");
+    expect(wrapper.classes()).toContain("stark-button-default");
   });
 
   it("渲染按钮有正确的属性", () => {
@@ -23,8 +23,8 @@ describe("测试 Button 组件", () => {
       },
     });
     // 断言
-    expect(wrapper.classes()).toContain("duyi-button");
-    expect(wrapper.classes()).toContain("duyi-button-primary");
+    expect(wrapper.classes()).toContain("stark-button");
+    expect(wrapper.classes()).toContain("stark-button-primary");
   });
 
   it("渲染plain类型的按钮", () => {
@@ -56,7 +56,7 @@ describe("测试 Button 组件", () => {
 
   it("渲染icon类型的按钮", () => {
     const wrapper = mount(Button, { props: { icon: "home" } });
-    expect(wrapper.find("i").classes()).toContain("duyi-icon-home");
+    expect(wrapper.find("i").classes()).toContain("stark-icon-home");
   });
 
   it("测试 slot 插槽是否正常工作", () => {
