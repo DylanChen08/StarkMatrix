@@ -1,5 +1,5 @@
 <template>
-  <stark-dialog v-model="visible" title="对话框标题">
+  <stark-dialog :visible="visible" title="对话框标题" @close="visible = false">
     这里是对话框内容
   </stark-dialog>
   <stark-button @click="visible = true">打开对话框</stark-button>
@@ -14,4 +14,4 @@ if (instance && instance.appContext.app && !instance.appContext.app._starkui_ins
   instance.appContext.app._starkui_installed = true
 }
 const visible = ref(false)
-</script> 
+</script>
